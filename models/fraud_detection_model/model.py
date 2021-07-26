@@ -12,7 +12,7 @@ from sklearn.linear_model import LogisticRegression
 from layer import Featureset, Train
 
 
-def train_model(train: Train, ff: Featureset("fraud_features")) -> Any:
+def train_model(train: Train, ff: Featureset("dm_fraud_features")) -> Any:
     """Model train function
 
     This function is a reserved function and will be called by Layer
@@ -54,7 +54,7 @@ def train_model(train: Train, ff: Featureset("fraud_features")) -> Any:
     # Train model
     model = LogisticRegression()
     model.fit(trainX, trainY)
-    preds = model.predict(testX,testY)
+    preds = model.predict(testX)
 
     # Since the data is highly skewed, we will use the area under the
     # precision-recall curve (AUPRC) rather than the conventional area under

@@ -8,7 +8,7 @@ apiVersion: 1
 
 type: featureset
 
-name: "fraud_features"
+name: "dm_fraud_features"
 description: "Transaction features extracted from transaction logs"
 
 features:
@@ -16,25 +16,13 @@ features:
     description: "Errors in the destination accounts"
     source: error_balance_dest.py
     environment: requirements.txt
+  - name: is_FRAUD
+    description: "is Fraud?"
+    source: is_fraud.py
+    environment: requirements.txt
   - name: error_balance_org
     description: "Errors in the originating accounts"
     source: error_balance_orig.py
-    environment: requirements.txt
-  - name: new_balance_dest
-    description: "Destination balance status after transaction"
-    source: new_balance_dest.py
-    environment: requirements.txt
-  - name: new_balance_orig
-    description: "Originating balance status after transaction"
-    source: new_balance_orig.py
-    environment: requirements.txt
-  - name: old_balance_dest
-    description: "Destination balance status before transaction"
-    source: old_balance_dest.py
-    environment: requirements.txt
-  - name: old_balance_orig
-    description: "Originating balance status before transaction"
-    source: old_balance_orig.py
     environment: requirements.txt
   - name: type
     description: "Type of the transaction (CASH_OUT=0, CASH_IN=1, DEBIT=2,
